@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'react-aria-components';
 import { theme } from './theme';
 
 export const AppHeader = styled.header`
@@ -142,6 +143,31 @@ export const TableHeaderCell = styled.th`
   font-size: ${theme.typography.fontSize.sm};
   font-weight: ${theme.typography.fontWeight.semibold};
   color: ${theme.colors.surface};
+`;
+
+export const SortableNameHeader = styled(Button)`
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  gap: ${theme.spacing.xs};
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${theme.colors.surface};
+    outline-offset: 2px;
+    border-radius: ${theme.radius.sm};
+  }
 `;
 
 export const TableBody = styled.tbody``;

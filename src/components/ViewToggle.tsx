@@ -1,4 +1,6 @@
 import { Button, Group } from 'react-aria-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressCard, faTable } from '@fortawesome/free-solid-svg-icons';
 import { ViewToggleGroup } from '../styles/styled';
 import { theme } from '../styles/theme';
 import styled from 'styled-components';
@@ -11,6 +13,11 @@ const StyledGroup = styled(Group)`
 `;
 
 const StyledButton = styled(Button)<{ $selected?: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
   padding: ${theme.spacing.sm} ${theme.spacing.md};
   font-size: ${theme.typography.fontSize.sm};
   font-family: ${theme.typography.fontFamily};
@@ -51,14 +58,14 @@ export function ViewToggle({ value, onChange }: ViewToggleProps) {
           $selected={value === 'card'}
           onPress={() => onChange('card')}
         >
-          Cards
+          <FontAwesomeIcon icon={faAddressCard} aria-hidden />
         </StyledButton>
         <StyledButton
           aria-label="Visualização em tabela"
           $selected={value === 'table'}
           onPress={() => onChange('table')}
         >
-          Tabela
+          <FontAwesomeIcon icon={faTable} aria-hidden />
         </StyledButton>
       </StyledGroup>
     </ViewToggleGroup>

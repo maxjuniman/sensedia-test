@@ -79,7 +79,7 @@ export function UsersPage() {
 
   return (
     <PageLayout>
-      <PageTitle>Usuários</PageTitle>
+      <PageTitle>Usuários Sensedia</PageTitle>
       <Toolbar>
         <SearchBar value={search} onChange={handleSearchChange} />
         <ViewToggle value={view} onChange={handleViewChange} />

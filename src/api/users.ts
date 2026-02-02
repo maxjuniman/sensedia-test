@@ -1,11 +1,19 @@
+import axios from 'axios';
 import type { User } from '../types/user';
 
 const USERS_URL = 'https://jsonplaceholder.typicode.com/users';
 
+let inFlightPromise: Promise<User[]> | null = null;
+
 export async function fetchUsers(): Promise<User[]> {
-  const response = await fetch(USERS_URL);
-  if (!response.ok) {
-    throw new Error('Falha ao buscar usuários');
+  if (inFlightPromise) {
+    return inFlightPromise;
   }
-  return response.json() as Promise<User[]>;
+  inFlightPromise = axios
+    .get<User[]>(USERS_URL)
+    .then((res) => res.data)
+    .finally(() => {
+      inFlightPromise = null;
+    });
+  return inFlightPromise;
 }

@@ -2,8 +2,11 @@ import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import axios from 'axios';
 import { UsersPage } from './UsersPage';
 import { mockUsers } from '../test/mocks/handlers';
+
+vi.mock('axios');
 
 function Wrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -15,19 +18,11 @@ function Wrapper({ children }: { children: React.ReactNode }) {
 
 describe('UsersPage', () => {
   beforeAll(() => {
-    vi.stubGlobal('fetch', vi.fn((url: string) => {
-      if (url.includes('jsonplaceholder.typicode.com/users')) {
-        return Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve(mockUsers),
-        } as Response);
-      }
-      return Promise.reject(new Error('Unknown URL'));
-    }));
+    vi.mocked(axios.get).mockResolvedValue({ data: mockUsers });
   });
 
   afterAll(() => {
-    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
   });
 
   it('exibe título Usuários', async () => {
