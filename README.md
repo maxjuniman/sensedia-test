@@ -46,7 +46,7 @@ npm run test
 npm run test:run
 ```
 
-## Deploy (Vercel / Netlify)
+## Deploy (Vercel)
 
 ### Build
 
@@ -68,21 +68,6 @@ npm i -g vercel
 vercel
 ```
 
-### Netlify
-
-1. Conecte o repositório no [Netlify](https://netlify.com).
-2. **Build command:** `npm run build`
-3. **Publish directory:** `dist`
-4. Deploy.
-
-Ou com `netlify.toml` na raiz:
-
-```toml
-[build]
-  command = "npm run build"
-  publish = "dist"
-```
-
 ### GitHub
 
 1. Crie um repositório no GitHub.
@@ -97,7 +82,7 @@ git remote add origin https://github.com/SEU_USUARIO/SEU_REPO.git
 git push -u origin main
 ```
 
-3. Conecte o repositório na Vercel ou Netlify e faça o deploy conforme acima.
+3. Conecte o repositório na Vercel e faça o deploy conforme acima.
 
 ## Estrutura do projeto
 

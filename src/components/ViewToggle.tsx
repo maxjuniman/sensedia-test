@@ -49,9 +49,6 @@ interface ViewToggleProps {
 export function ViewToggle({ value, onChange }: ViewToggleProps) {
   return (
     <ViewToggleGroup role="group" aria-label="Visualização da lista">
-      <span style={{ fontSize: theme.typography.fontSize.sm, color: theme.colors.textMuted }}>
-        Visualização:
-      </span>
       <StyledGroup aria-label="Alternar entre card e tabela">
         <StyledButton
           aria-label="Visualização em cards"
