@@ -3,17 +3,19 @@ import type { User } from '../types/user';
 
 const USERS_URL = 'https://jsonplaceholder.typicode.com/users';
 
-let inFlightPromise: Promise<User[]> | null = null;
+let controllerRequest: Promise<User[]> | null = null;
 
 export async function fetchUsers(): Promise<User[]> {
-  if (inFlightPromise) {
-    return inFlightPromise;
+  if (controllerRequest) {
+    return controllerRequest;
   }
-  inFlightPromise = axios
+
+  controllerRequest = axios
     .get<User[]>(USERS_URL)
     .then((res) => res.data)
     .finally(() => {
-      inFlightPromise = null;
+      controllerRequest = null;
     });
-  return inFlightPromise;
+
+  return controllerRequest;
 }

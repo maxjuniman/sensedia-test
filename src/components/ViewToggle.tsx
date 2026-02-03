@@ -48,7 +48,7 @@ interface ViewToggleProps {
 
 export function ViewToggle({ value, onChange }: ViewToggleProps) {
   return (
-    <ViewToggleGroup role="group" aria-label="Visualização da lista">
+    <ViewToggleGroup role="group" aria-label="Visualização da lista de usuários">
       <StyledGroup aria-label="Alternar entre card e tabela">
         <StyledButton
           aria-label="Visualização em cards"

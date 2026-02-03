@@ -14,7 +14,7 @@ export function UserCard({ user }: UserCardProps) {
     <UserCardStyled>
       <UserCardName>{user.name}</UserCardName>
       <UserCardMeta>
-        <strong>Email:</strong> {user.email}
+        <strong>E-mail:</strong> {user.email}
       </UserCardMeta>
       <UserCardMeta>
         <strong>Telefone:</strong> {user.phone}

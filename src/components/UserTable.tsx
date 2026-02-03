@@ -28,9 +28,9 @@ function sortByName(users: User[], direction: SortDirection): User[] {
 
 export function UserTable({ users }: UserTableProps) {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
-  const sortedUsers = useMemo(
-    () => sortByName(users, sortDirection),
-    [users, sortDirection],
+  const sortedUsers = useMemo(() => 
+    sortByName(users, sortDirection),
+    [users, sortDirection]
   );
 
   const handleSortByName = () => {
@@ -55,7 +55,7 @@ export function UserTable({ users }: UserTableProps) {
                 />
               </SortableNameHeader>
             </TableHeaderCell>
-            <TableHeaderCell scope="col">Email</TableHeaderCell>
+            <TableHeaderCell scope="col">E-mail</TableHeaderCell>
             <TableHeaderCell scope="col">Telefone</TableHeaderCell>
           </tr>
         </TableHead>
